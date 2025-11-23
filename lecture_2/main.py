@@ -1,7 +1,6 @@
 user_name=input('Hello! What is your full name?')
 birth_year_str=input('What is your birth year? honey?')
 birth_year=int(birth_year_str)
-print(user_name, birth_year)
 current_age=2025-birth_year
 hobbies=[]
 def generate_profile(current_age):
@@ -22,6 +21,7 @@ while True :
 life_stage=generate_profile(current_age)
 user_profile={'Name': user_name, "Age":current_age,"Life Stage": life_stage, 'Hobbies': hobbies}
 info=f"""
+------
 Profile summary
 Name: {user_profile['Name']}
 Age: {user_profile['Age']}
@@ -29,5 +29,10 @@ Life stage: {user_profile['Life Stage']}
 """
 print(info)
 r=len(hobbies)
-for i in range(r):
-    print("Favorite hobbies"+hobbies.item(i))
+if r==0:
+    print("You didn't mention any hobbie")
+else:
+    print("Favorite hobbies"+"("+str(r)+")")
+    for i in range(r):
+        print("-"+hobbies[i])
+
